@@ -22,14 +22,14 @@ if __name__ == "__main__":
     sentences = input("Enter Sentences")
     mac = uuid.getnode()
     start_time = time.time()
-    memory_before = psutil.virtual_memory().used / (1024 * 1024)
+    memory_before = psutil.Process().memory_info().rss / (1024 * 1024)
 
    result = check_sentence(sentence)
    print(f"Input: {sentence}")
    print(f"Output: {result}")
    print()
 
-    memory_after = psutil.virtual_memory().used / (1024 * 1024)
+    memory_after = psutil.Process().memory_info().rss / (1024 * 1024)
     end_time = time.time()
     mac_address = ':'.join(['{:02x}'.format((mac >> elements) & 0xff) for elements in range(0, 8*6, 8)][::-1])
     print(f"MAC Address: {mac_address}")
