@@ -29,7 +29,7 @@ def visualize_attribute(df, attribute):
 # Process athlete_events.csv
 mac = uuid.getnode()
 start_time = time.time()
-memory_before = psutil.virtual_memory().used / (1024 * 1024)
+memory_before = psutil.Process().memory_info().rss / (1024 * 1024)
 athlete_events_df = pd.read_csv(r"Week-0 Assignment\Week-0 Assignment\athlete_events.csv")
 sales_data_sample_df = pd.read_csv(r"Week-0 Assignment\Week-0 Assignment\sales_data_sample.csv",encoding='Windows-1252')
 
@@ -55,7 +55,7 @@ print(f"Mode {attribute}: {mode}")
 print(f"Median {attribute}: {median}")
 
 visualize_attribute(sales_data_sample_df, attribute)
-memory_after = psutil.virtual_memory().used / (1024 * 1024)
+memory_after = psutil.Process().memory_info().rss / (1024 * 1024)
 end_time = time.time()
 mac_address = ':'.join(['{:02x}'.format((mac >> elements) & 0xff) for elements in range(0, 8*6, 8)][::-1])
 print(f"MAC Address: {mac_address}")
