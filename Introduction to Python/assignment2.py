@@ -19,15 +19,15 @@ def check_sentence(sentence):
     return "The sentence is correct."
 
 if __name__ == "__main__":
-    sentences = input("Enter Sentences")
+    sentence = input("Enter Sentences")
     mac = uuid.getnode()
     start_time = time.time()
     memory_before = psutil.Process().memory_info().rss / (1024 * 1024)
 
-   result = check_sentence(sentence)
-   print(f"Input: {sentence}")
-   print(f"Output: {result}")
-   print()
+    result = check_sentence(sentence)
+    print(f"Input: {sentence}")
+    print(f"Output: {result}")
+    print()
 
     memory_after = psutil.Process().memory_info().rss / (1024 * 1024)
     end_time = time.time()
